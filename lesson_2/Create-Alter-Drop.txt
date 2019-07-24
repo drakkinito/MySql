@@ -1,0 +1,38 @@
+
+    // -- -- -- //
+    USE carsshop;
+
+    DROP TABLE clients; -- delete DB;
+
+    CREATE TABLE clients 
+    (
+        id int auto_increment NOT NULL,
+        name varchar(25) NOT NULL,
+        age varchar(25) NOT NULL,
+        phone varchar(25) DEFAULT  'Unknown',
+        PRIMARY KEY (id)
+    );
+
+    DROP TABLE clients;
+
+    CREATE TABLE clients 
+    (
+        id int auto_increment NOT NULL,
+        name varchar(25) NOT NULL,
+        age varchar(25) NOT NULL,
+        phone varchar(25) DEFAULT  'Unknown',
+        data datetime NOT NULL,
+        PRIMARY KEY (id)	
+    );
+
+    insert into clients(name, age, data) values('Jeremy', 20, NOW());
+
+    ALTER TABLE clients ADD newFild int NUll; 
+
+    select * from clients;
+
+    ALTER TABLE clients DROP column newFild;
+
+    ALTER TABLE clients ADD column newFild varchar(10) not null default 'Unknown';
+
+    select * from clients;

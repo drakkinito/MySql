@@ -1,0 +1,67 @@
+USE carsshop;
+
+DROP TABLE clients;
+
+CREATE TABLE clients 
+(
+	id int NOT NULL,
+    name varchar(25) NOT NULL,
+    age int NOT NULL,
+	PRIMARY KEY (id)
+);
+
+alter table clients add phone varchar(25) default 'Unknown';
+
+insert into clients(id, name, age, phone)
+values 
+(1, 'Dima', 25, '093-3241434'),
+(2, 'Vika', 27, '093-3241456'), 
+(3, 'Olia', 18, '093-3781434');
+
+select * from clients;
+
+drop table clients;
+
+-- два первичних ключа
+create table clients
+(
+	id int not null,
+    name varchar(25) not null,
+    age int not null,
+    phone varchar(25) default 'Unknown',
+    primary key (id, name )
+);
+
+insert into clients(id, name, age, phone)
+values
+(1, 'Dima', 25, '093-2344365'),
+(2, 'Vika', 26, '093-2334365'),
+(1, 'Olia', 18, '093-4544365');
+
+insert into clients(id, name, age, phone)
+values
+(2, 'Vika', 17, '095-2346587'); -- не спрацює із за id and name similar
+
+select * from clients;
+
+drop table clients;
+
+create table clients
+(
+	id int not null,
+    name varchar(25) not null,
+	age int not null,
+    phone varchar(25) default 'Unknown'
+);
+
+alter table clients 
+add constraint pk_clients
+primary key (id);
+
+insert into clients(id, name, age, phone)
+values
+(1, 'dima', 25, '094-2347657'),
+(2, 'vika', 27, '094-2347237'),
+(3, 'olia', 18, '094-2347677');
+
+drop table clients;
