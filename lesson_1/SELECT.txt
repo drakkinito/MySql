@@ -1,0 +1,40 @@
+USE CarsShop;
+
+SELECT * FROM cars; // вибираємо всі нащі данні з cars
+SELECT mark FROM cars // вибирає данні з табиці cars по столбіку mark
+SELECT speed FROM cars // вибирає данні з табиці cars по столбіку mark
+SELECT mark, speed FROM cars // вибирає данні з табиці cars по столбіку mark, speed
+SELECT mark, price, speed FROM cars // вибирає данні з таблиці cars по столбіку mark, price, speed
+
+// додаємо до таблиці clients данні
+insert into clients(name, age, phone) value('aa', 22, '54321'); 
+insert into clients(name, age, phone) value('bb', 23, '54322');
+insert into clients(name, age, phone) value('cc', 24, '54323');
+insert into clients(name, age, phone) value('dd', 25, '54324');
+insert into clients(name, age, phone) value('ee', 26, '54325');
+
+
+SELECT name, age, phone FROM carsshop.clients; // витянує name, age, phone з таблиці clients
+
+SELECT * FROM carsshop.clients WHERE id = 1; // вибирає тільки id = 1
+
+SELECT * FROM carsshop.clients WHERE id > 2; // вибирає всі id де id > 2
+
+SELECT * FROM carsshop.clients WHERE id BETWEEN 2 AND 3;  
+
+SELECT * FROM carsshop.clients WHERE name = 'aa' OR  name ='cc';
+
+SELECT * FROM carsshop.clients WHERE name = 'aa' AND age > 18;
+
+SELECT name, age FROM carsshop.clients WHERE NOT name = 'bb'; // пропустить поле де name = 'bb'
+
+
+SELECT name, age FROM carsshop.clients WHERE phone LIKE '5%'; // номер телефона який починається на 5 
+
+SELECT name, age FROM carsshop.clients WHERE phone LIKE '%3'; // номер телефона який закінчується на 3
+						  
+SELECT name, age, phone FROM carsshop.clients WHERE phone LIKE '%43%'; // номер телефона який між 5 і 21 
+
+//  вибирає age де є 20, 22, 23
+SELECT * FROM carsshop.clients  WHERE age IN (20, 22, 23);
+SeLeCt * from carsshop.clients  where age = 20 or age= 22 or age = 23;

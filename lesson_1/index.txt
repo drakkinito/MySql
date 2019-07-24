@@ -1,0 +1,6 @@
+DMl - Data Manipulation Language (маніполювання данними)
+    INSERT - додавання даних
+    SELECT - виборка даних
+    UPDATE - зміна даних
+    DELETE - видалення даних
+    ORDER BY - сортіровка
