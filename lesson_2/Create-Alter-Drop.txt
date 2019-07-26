@@ -1,38 +1,54 @@
+CREATE DATABASE productsdb; // створення db
 
-    // -- -- -- //
-    USE carsshop;
+USE productsdb;
 
-    DROP TABLE clients; -- delete DB;
+DROP DATABASE productsdb; // видалення db
 
-    CREATE TABLE clients 
-    (
-        id int auto_increment NOT NULL,
-        name varchar(25) NOT NULL,
-        age varchar(25) NOT NULL,
-        phone varchar(25) DEFAULT  'Unknown',
-        PRIMARY KEY (id)
-    );
+RENAME TABLE  productdb.newCustomers to productdb.customers; // RENAME name table
+ALTER TABLE productdb.customers RENAME productdb.newCustomers; // RENAME name table
 
-    DROP TABLE clients;
 
-    CREATE TABLE clients 
-    (
-        id int auto_increment NOT NULL,
-        name varchar(25) NOT NULL,
-        age varchar(25) NOT NULL,
-        phone varchar(25) DEFAULT  'Unknown',
-        data datetime NOT NULL,
-        PRIMARY KEY (id)	
-    );
+// -- -- -- //
+USE carsshop;
 
-    insert into clients(name, age, data) values('Jeremy', 20, NOW());
+DROP TABLE clients; -- delete DB;
 
-    ALTER TABLE clients ADD newFild int NUll; 
+CREATE TABLE clients 
+(
+    id int auto_increment NOT NULL,
+    name varchar(25) NOT NULL,
+    age varchar(25) NOT NULL,
+    Email varchar(20) not null,
+    phone varchar(25) DEFAULT  'Unknown',
+    PRIMARY KEY (id)
+    UNIQUE(Email, Phone) // якщо в таблиці два одинакових значення ми не добавимо два одинакових значення
 
-    select * from clients;
+    email varchar(20) check(email !=''), //CHECK задает ограничение для диапазона значений, которые могут храниться в столбце
+    phone varchar(25) check(phone !=''), //CHECK задает ограничение для диапазона значений, которые могут храниться в столбце
+    CHECK((Age >0 AND Age<100) AND (Email !='') AND (Phone !='')) //Для соединения условий используется ключевое слово AND
 
-    ALTER TABLE clients DROP column newFild;
+);
 
-    ALTER TABLE clients ADD column newFild varchar(10) not null default 'Unknown';
+DROP TABLE clients;
 
-    select * from clients;
+CREATE TABLE clients 
+(
+    id int auto_increment NOT NULL,
+    name varchar(25) NOT NULL,
+    age varchar(25) NOT NULL,
+    phone varchar(25) DEFAULT  'Unknown',
+    data datetime NOT NULL,
+    PRIMARY KEY (id)	
+);
+
+insert into clients(name, age, data) values('Jeremy', 20, NOW());
+
+ALTER TABLE clients ADD newFild int NUll; 
+
+select * from clients;
+
+ALTER TABLE clients DROP column newFild;
+
+ALTER TABLE clients ADD column newFild varchar(10) not null default 'Unknown';
+
+select * from clients;
