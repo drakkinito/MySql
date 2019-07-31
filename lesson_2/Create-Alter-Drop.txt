@@ -43,11 +43,10 @@ CREATE TABLE clients
 
 insert into clients(name, age, data) values('Jeremy', 20, NOW());
 
-ALTER TABLE clients ADD newFild int NUll; 
-
+ALTER TABLE clients ADD newFild int NUll; -- додає колонку
 select * from clients;
 
-ALTER TABLE clients DROP column newFild;
+ALTER TABLE clients DROP column newFild; -- видаляє колонку
 
 ALTER TABLE clients ADD column newFild varchar(10) not null default 'Unknown';
 
