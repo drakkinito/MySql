@@ -51,3 +51,8 @@ ALTER TABLE clients DROP column newFild; -- видаляє колонку
 ALTER TABLE clients ADD column newFild varchar(10) not null default 'Unknown';
 
 select * from clients;
+
+ALTER TABLE clients auto_increment = 0; -- повертає автоінкремент до 0
+ALTER TABLE cars auto_increment = 0; -- повертає автоінкремент до 0
+
+Alter table Employees Add constraint PK_Employees primary key(EmployeesID); -- створює primary key в таблиці якщо ми спочатку не додали

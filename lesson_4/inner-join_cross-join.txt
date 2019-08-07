@@ -1,0 +1,49 @@
+INNER JOIN
+
+use shopdb;
+
+drop table jointest1;
+drop table jointest2;
+
+create table JoinTest1
+(
+	id_jt1 int,
+    name varchar(50)
+);
+
+create table JoinTest2
+(
+	id_jt2 int,
+    name varchar(50)
+);
+
+insert into jointest1
+values  (1,'one'),
+		(2,'two'),
+		(3,'three'),
+		(4,'four'),
+		(5,'five'),
+		(9,'nine'),
+		(10,'ten');
+        
+insert into jointest2
+values  (1,'one'),
+		(2,'two'),
+		(3,'three'),
+		(4,'four'),
+		(5,'five'),
+		(6,'six'),
+		(7,'seven'),
+		(8,'eight');
+        
+select * from jointest1;
+select * from jointest2;
+
+select * from jointest2 inner join jointest1 on id_jt1 = id_jt2; -- вибирає id які співпадають 
+
+select * from jointest2 left outer join jointest1 on id_jt1 = id_jt2; -- jointest2 головна таблаця і якщо не має таких id то на їх місце буде null
+
+select * from jointest2 right outer join jointest1 on id_jt1 = id_jt2; -- jointest1 головна таблаця і якщо не має таких id то на їх місце буде nul l
+
+SELECT * FROM JoinTest1
+   CROSS JOIN JoinTest2; 

@@ -1,0 +1,16 @@
+USE ShopDB;
+
+
+
+SELECT * FROM JoinTest1 UNION SELECT * FROM JoinTest2; -- добере значення яких не вистачає
+
+
+SELECT * FROM JoinTest1 UNION ALL SELECT * FROM JoinTest2; -- скаладує дві таблиці в одну по колонкам
+
+
+-- додає колонки з таблиці JoinTest2 і значень яких немає ставить null
+SELECT * FROM JoinTest1
+LEFT JOIN JoinTest2 ON id_jt1=id_jt2
+UNION
+SELECT * FROM JoinTest1
+RIGHT JOIN JoinTest2 ON id_jt1=id_jt2;

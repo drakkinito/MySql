@@ -7,5 +7,3 @@ Alter (Змінити БД)
 Drop (Видалити БД)
 
 
-ALTER TABLE clients auto_increment = 0; -- повертає автоінкремент до 0
-ALTER TABLE cars auto_increment = 0; -- повертає автоінкремент до 0
